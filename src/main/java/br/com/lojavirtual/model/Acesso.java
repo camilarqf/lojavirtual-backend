@@ -31,11 +31,11 @@ public class Acesso implements GrantedAuthority {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Acesso acesso = (Acesso) o;
-        return Objects.equals(id, acesso.id);
+        return getId().equals(acesso.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(getId());
     }
 }

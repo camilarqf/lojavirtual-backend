@@ -26,11 +26,11 @@ public class CategoriaProduto implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CategoriaProduto that = (CategoriaProduto) o;
-        return id.equals(that.id);
+        return getId().equals(that.getId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(getId());
     }
 }
