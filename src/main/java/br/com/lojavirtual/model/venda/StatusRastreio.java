@@ -1,4 +1,4 @@
-package br.com.lojavirtual.model;
+package br.com.lojavirtual.model.venda;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -19,8 +19,11 @@ public class StatusRastreio {
     private Long id;
 
     private String centroDistribuicao;
+
     private String cidade;
+
     private String estado;
+
     private String status;
 
     @ManyToOne

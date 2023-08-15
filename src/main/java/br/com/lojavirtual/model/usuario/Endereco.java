@@ -1,9 +1,8 @@
-package br.com.lojavirtual.model;
+package br.com.lojavirtual.model.usuario;
 
 import br.com.lojavirtual.enums.ETipoEndereco;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.security.core.GrantedAuthority;
 
 import javax.persistence.*;
 import java.util.Objects;
@@ -19,14 +18,28 @@ public class Endereco  {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_endereco")
     private Long id;
+
+    @Column(nullable = false)
     private String ruaLogra;
+
+    @Column(nullable = false)
     private String cep;
+
+    @Column(nullable = false)
     private String numero;
+
     private String complemento;
+
+    @Column(nullable = false)
     private String bairro;
+
+    @Column(nullable = false)
     private String uf;
+
+    @Column(nullable = false)
     private String cidade;
 
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private ETipoEndereco tipoEndereco;
 

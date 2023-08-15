@@ -1,7 +1,7 @@
-package br.com.lojavirtual.model;
+package br.com.lojavirtual.model.venda;
 
 import br.com.lojavirtual.enums.EStatusContaPagar;
-import br.com.lojavirtual.enums.EStatusContaReceber;
+import br.com.lojavirtual.model.usuario.Pessoa;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,17 +22,21 @@ public class ContaPagar {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_conta_pagar")
     private Long id;
 
+    @Column(nullable = false)
     private String descricao;
 
+    @Column(nullable = false)
     @Enumerated(EnumType.STRING)
     private EStatusContaPagar statusContaPagar;
 
+    @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dtVencimento;
 
     @Temporal(TemporalType.DATE)
     private Date dtPagamento;
 
+    @Column(nullable = false)
     private BigDecimal valorTotal;
     private BigDecimal valorDesconto;
 

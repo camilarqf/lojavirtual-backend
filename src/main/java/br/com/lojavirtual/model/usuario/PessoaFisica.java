@@ -1,4 +1,4 @@
-package br.com.lojavirtual.model;
+package br.com.lojavirtual.model.usuario;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +9,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Table(name = "pessoa_fisica")
-@PrimaryKeyJoinColumn(name = "id")
+@PrimaryKeyJoinColumn(name = "id", referencedColumnName = "id", foreignKey = @ForeignKey(name = "pessoa_fk"))
 public class PessoaFisica extends Pessoa {
 
     private static final long serialVersionUID = -6662798142733586160L;

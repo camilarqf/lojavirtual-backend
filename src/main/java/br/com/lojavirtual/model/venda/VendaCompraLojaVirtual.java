@@ -1,5 +1,9 @@
-package br.com.lojavirtual.model;
+package br.com.lojavirtual.model.venda;
 
+import br.com.lojavirtual.model.produto.CupDesc;
+import br.com.lojavirtual.model.usuario.Endereco;
+import br.com.lojavirtual.model.usuario.Pessoa;
+import br.com.lojavirtual.model.notas.NotaFiscalVenda;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -35,7 +39,9 @@ public class VendaCompraLojaVirtual {
             foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "endereco_entrega_fk"))
     private Endereco enderecoEntrega;
 
+    @Column(nullable = false)
     private BigDecimal valorTotal;
+
     private BigDecimal valorDesconto;
 
     @ManyToOne
@@ -49,16 +55,20 @@ public class VendaCompraLojaVirtual {
     private NotaFiscalVenda notaFiscalVenda;
 
     @ManyToOne
-    @JoinColumn(name = "cup_desc_id", nullable = false,
-            foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "cup_desc_fk"))
+    @JoinColumn(name = "cup_desc_id",foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "cup_desc_fk"))
     private CupDesc cupDesc;
 
+    @Column(nullable = false)
     private BigDecimal valorFrete;
+
+    @Column(nullable = false)
     private Integer diasEntrega;
 
+    @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dataVenda;
 
+    @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dataEntrega;
 

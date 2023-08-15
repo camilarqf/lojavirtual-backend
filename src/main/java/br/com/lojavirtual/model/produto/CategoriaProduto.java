@@ -1,4 +1,4 @@
-package br.com.lojavirtual.model;
+package br.com.lojavirtual.model.produto;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,11 +1,10 @@
-package br.com.lojavirtual.model;
+package br.com.lojavirtual.model.notas;
 
+import br.com.lojavirtual.model.venda.VendaCompraLojaVirtual;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
-import java.util.Date;
 import java.util.Objects;
 
 @Entity
@@ -19,14 +18,20 @@ public class NotaFiscalVenda {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_nota_fiscal_venda")
     private Long id;
+
+    @Column(nullable = false)
     private String serie;
+
+    @Column(nullable = false)
     private String numero;
+
+    @Column(nullable = false)
     private String tipo;
 
-    @Column(columnDefinition = "text")
+    @Column(columnDefinition = "text" , nullable = false)
     private String xml;
 
-    @Column(columnDefinition = "text")
+    @Column(columnDefinition = "text", nullable = false)
     private String pdf;
 
     @OneToOne

@@ -1,4 +1,4 @@
-package br.com.lojavirtual.model;
+package br.com.lojavirtual.model.produto;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -20,12 +20,15 @@ public class CupDesc {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_cup_desc")
     private Long id;
 
+    @Column(nullable = false)
     private String codDesc;
 
+    @Column(nullable = false)
     @Temporal(TemporalType.DATE)
     private Date dataValidade;
 
     private BigDecimal valorRealDesc;
+
     private BigDecimal valorPercDesc;
 
 

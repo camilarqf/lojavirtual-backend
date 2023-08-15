@@ -1,43 +1,42 @@
-package br.com.lojavirtual.model;
+package br.com.lojavirtual.model.venda;
 
+import br.com.lojavirtual.model.produto.Produto;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
-import java.util.Date;
 import java.util.Objects;
 
 @Entity
 @Getter
 @Setter
-@Table(name = "nota_item_produto")
-@SequenceGenerator(name = "seq_nota_item_produto", sequenceName = "seq_nota_item_produto", allocationSize = 1, initialValue = 1)
-public class NotaItemProduto {
+@Table(name = "item_venda_loja")
+@SequenceGenerator(name = "seq_item_venda_loja", sequenceName = "seq_item_venda_loja", allocationSize = 1, initialValue = 1)
+public class ItemVendaLoja {
 
     private static final long serialVersionUID = 5631592480401907801L;
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_nota_item_produto")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_item_venda_loja")
     private Long id;
 
     @Column(nullable = false)
     private Double quantidade;
 
     @ManyToOne
+    @JoinColumn(name = "venda_compra_loja_virtual_id", nullable = false,
+            foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "venda_compra_loja_virtual_fk"))
+    private VendaCompraLojaVirtual vendaCompraLojaVirtual;
+
+    @ManyToOne
     @JoinColumn(name = "produto_id", nullable = false,
             foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "produto_fk"))
     private Produto produto;
-
-    @ManyToOne
-    @JoinColumn(name = "nota_fiscal_compra_id", nullable = false,
-            foreignKey = @ForeignKey(value = ConstraintMode.CONSTRAINT, name = "nota_fiscal_compra_fk"))
-    private NotaFiscalCompra notaFiscalCompra;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        NotaItemProduto that = (NotaItemProduto) o;
+        ItemVendaLoja that = (ItemVendaLoja) o;
         return id.equals(that.id);
     }
 

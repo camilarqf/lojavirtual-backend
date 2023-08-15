@@ -1,4 +1,4 @@
-package br.com.lojavirtual.model;
+package br.com.lojavirtual.model.venda;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -20,6 +20,7 @@ public class FormaPagamento implements Serializable {
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_forma_pagamento")
     private Long id;
 
+    @Column(nullable = false)
     private String descricao;
 
     @Override
